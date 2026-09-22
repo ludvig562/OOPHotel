@@ -4,6 +4,7 @@ namespace OOPHotel;
 
 public class HotelBooking
 {
+    public Person person { get; set; }
     public string GuestName { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
