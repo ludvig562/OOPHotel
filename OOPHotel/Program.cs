@@ -15,12 +15,12 @@ class Program
         }
         Console.WriteLine("Vilket datum vill du boka? (åååå-mm-dd): ");
 
-        
-        //DateTime parsedDate;
-        //while (!DateTime.TryParseExact(Console.ReadLine(), "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out parsedDate)) ;
-        //{
-        //    Console.WriteLine("Det måste vara ett giltigt datum, försök igen.");
-        //}
+
+        DateTime parsedDate;
+        while (!(DateTime.TryParseExact(Console.ReadLine(), "yyyy-mm-dd", null, System.Globalization.DateTimeStyles.None, out parsedDate)))
+        {
+            Console.WriteLine("Det måste vara ett giltigt datum, försök igen.");
+        }
 
 
         var person1 = new HotelBooking(name, parsedDate, number);
