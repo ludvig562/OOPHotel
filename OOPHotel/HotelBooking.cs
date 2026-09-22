@@ -17,4 +17,17 @@ public class HotelBooking
         EndDate = parsedDate.AddDays(lengthOfStayInDays).ToShortDateString();
 
     }
+
+    public void DisplayBookingInfo()
+    {
+        Console.WriteLine($"Gästnamn:{GuestName}");
+        Console.WriteLine($"Startdatum:{StartDate}");
+        Console.WriteLine($"Slutdatum:{EndDate}");
+
+    
+    
+    }
+        
+
+
 }
