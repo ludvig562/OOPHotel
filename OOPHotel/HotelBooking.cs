@@ -8,15 +8,30 @@ public class HotelBooking
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
 
-    private int _Length;
+    private int _length;
 
+    public int Length
+    {
+        get { return _length; }
+        set
+        {
+            if (value > 0)
+            {
+                _length = value;
+            }
+            else
+            {
+                throw new ArgumentException("Numret får inte vara negativt, försök igen");
+            }
+        }
+    }
     public HotelBooking(string name, DateTime startDate, int lengthOfStayInDays)
     {
         DateTime dateString = startDate;
         GuestName = name;
         StartDate = startDate;
         EndDate = startDate.AddDays(lengthOfStayInDays);
-        _Length = lengthOfStayInDays;
+        _length = lengthOfStayInDays;
     }
 
 
@@ -31,13 +46,15 @@ public class HotelBooking
 
     public int CalculateBookingPrice()
     {
-        int hotelPrice = 1500 * _Length;
+        int hotelPrice = 1500 * _length;
         return hotelPrice;
     }
 
     public void UpdateBookingDate(int lengthOfStayInDay)
     {
         EndDate = StartDate.AddDays(lengthOfStayInDay);
-        _Length = lengthOfStayInDay;
+        _length = lengthOfStayInDay;
     }
+
+    
 }

@@ -9,15 +9,13 @@ class Program
 
         int number = 0;
         Console.WriteLine("Hur länge vill du stanna: ");
-        while (!int.TryParse(Console.ReadLine(), out number))
-        {
-            Console.WriteLine("Du får bara skriva i siffor, försök igen");
-        }
-        Console.WriteLine("Vilket datum vill du boka? (åååå-mm-dd): ");
+        Console.WriteLine("Kr/Natt 1500");
+        number = ValidInput(number);
+        Console.WriteLine("Vilket datum vill du boka? (åååå-mm-dd) ");
 
 
         DateTime parsedDate;
-        while (!(DateTime.TryParseExact(Console.ReadLine(), "yyyy-mm-dd", null, System.Globalization.DateTimeStyles.None, out parsedDate)))
+        while (!(DateTime.TryParseExact(Console.ReadLine(), "yyyy-mm-dd", null, System.Globalization.DateTimeStyles.None, out parsedDate)) || parsedDate < DateTime.Now)
         {
             Console.WriteLine("Det måste vara ett giltigt datum, försök igen.");
         }
@@ -28,12 +26,19 @@ class Program
         person1.DisplayBookingInfo();
 
         Console.WriteLine("Välj det nya antalet dagar du vill stanna:");
-        while (!int.TryParse(Console.ReadLine(), out number))
-        {
-            Console.WriteLine("Du får bara skriva i siffor, försök igen");
-        }
+        number = ValidInput(number);
+
         person1.UpdateBookingDate(number);
         Console.WriteLine("\nUppdaterad bokningsinformation:");
         person1.DisplayBookingInfo();
+    }
+
+    static int ValidInput(int number)
+    {
+        while (!int.TryParse(Console.ReadLine(), out number) || number < 0)
+        {
+            Console.WriteLine("Du får bara skriva i siffor och posetiva tal, försök igen");
+        }
+        return number;
     }
 }
