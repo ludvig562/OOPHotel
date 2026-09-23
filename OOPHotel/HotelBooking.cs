@@ -4,7 +4,7 @@ namespace OOPHotel;
 
 public class HotelBooking
 {
-    public Person Person { get; set; }
+    public Person[] Person { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
 
@@ -25,7 +25,7 @@ public class HotelBooking
             }
         }
     }
-    public HotelBooking(Person guest, DateTime startDate, int lengthOfStayInDays)
+    public HotelBooking(Person[] guest, DateTime startDate, int lengthOfStayInDays)
     {
         DateTime dateString = startDate;
         Person = guest;
@@ -37,9 +37,14 @@ public class HotelBooking
 
     public void DisplayBookingInfo()
     {
-        Console.WriteLine($"Gästnamn: {Person.Name}");
-        Console.WriteLine($"Email: {Person.Mail}");
-        Console.WriteLine($"Telefonnummer: {Person.PhoneNumber}\n");
+
+        foreach (Person guest in Person)
+        {
+            Console.WriteLine($"Namn: {guest.Name}");
+            Console.WriteLine($"E-post: {guest.Mail}");
+            Console.WriteLine($"Telefonnummer: {guest.PhoneNumber}\n");
+        }
+
         Console.WriteLine($"Startdatum: {StartDate:d}");
         Console.WriteLine($"Slutdatum: {EndDate:d}");
         Console.WriteLine($"Ditt pris blir: {CalculateBookingPrice()}\n");

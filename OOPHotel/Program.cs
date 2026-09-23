@@ -7,14 +7,27 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Vad heter du: ");
-        string name = Console.ReadLine();
+        int numberOfGuests = 0;
+        Console.Write("Hur många gäster ska bokningen ha? ");
+        numberOfGuests = ValidInput(numberOfGuests);
 
-        Console.WriteLine("vad är din e-postadress");
-        string epost = Console.ReadLine();
+        Person[] guest = new Person[numberOfGuests];
 
-        Console.Write("ange ditt telefonnumer: ");
-        string phone = Console.ReadLine();
+        for (int i = 0; i < numberOfGuests; i++)
+        {
+            Console.WriteLine($"\nGäst {i + 1}");
+
+            Console.Write("Namn: ");
+            string name = Console.ReadLine();
+
+            Console.Write("E-post: ");
+            string email = Console.ReadLine();
+
+            Console.Write("Telefonnummer: ");
+            string phone = Console.ReadLine();
+
+            guest[i] = new Person(name, email, phone);
+        }
 
         int number = 0;
         Console.WriteLine("Hur länge vill du stanna");
@@ -31,10 +44,8 @@ class Program
         Console.WriteLine("Vill du boka rummet? (ja/nej)");
         string awnser = Console.ReadLine();
 
-        if(awnser == "ja")
+        if (awnser == "ja")
         {
-            var guest = new Person(name, epost, phone);
-
             var booking = new HotelBooking(guest, parsedDate, number);
 
             Console.WriteLine("\nBokningsinformation:");
