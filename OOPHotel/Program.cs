@@ -7,6 +7,14 @@ class Program
         Console.WriteLine("Vad heter du: ");
         string name = Console.ReadLine();
 
+        Console.WriteLine("vad är din e-postadress");
+        string epost = Console.ReadLine();
+
+        Console.Write("ange ditt telefonnumer: ");
+        string phone = Console.ReadLine();
+
+        var guest = new Person(name, epost, phone);
+
         int number = 0;
         Console.WriteLine("Hur länge vill du stanna: ");
         Console.WriteLine("Kr/Natt 1500");
@@ -21,7 +29,8 @@ class Program
         }
 
 
-        var person1 = new HotelBooking(name, parsedDate, number);
+        var person1 = new HotelBooking(guest, parsedDate, number);
+
         Console.WriteLine("\nBokningsinformation:");
         person1.DisplayBookingInfo();
 

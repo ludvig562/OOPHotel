@@ -11,10 +11,11 @@ namespace OOPHotel
         public string PhoneNumber { get; set; }
 
 
-      public Person()
-        
+        public Person(string name, string mail, string phone)
         {
-         
+            Name = name;
+            Mail = mail;
+            PhoneNumber = phone;
         }
 
 

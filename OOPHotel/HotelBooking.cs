@@ -4,8 +4,7 @@ namespace OOPHotel;
 
 public class HotelBooking
 {
-    public Person person { get; set; }
-    public string GuestName { get; set; }
+    public Person Person { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
 
@@ -26,10 +25,10 @@ public class HotelBooking
             }
         }
     }
-    public HotelBooking(string name, DateTime startDate, int lengthOfStayInDays)
+    public HotelBooking(Person guest, DateTime startDate, int lengthOfStayInDays)
     {
         DateTime dateString = startDate;
-        GuestName = name;
+        Person = guest;
         StartDate = startDate;
         EndDate = startDate.AddDays(lengthOfStayInDays);
         _length = lengthOfStayInDays;
