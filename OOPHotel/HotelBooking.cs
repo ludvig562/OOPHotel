@@ -37,11 +37,13 @@ public class HotelBooking
 
     public void DisplayBookingInfo()
     {
-        Console.WriteLine($"Gästnamn:{GuestName}");
-        Console.WriteLine($"Startdatum:{StartDate:d}");
-        Console.WriteLine($"Slutdatum:{EndDate:d}");
-        Console.WriteLine($"Ditt pris blir:{CalculateBookingPrice()}");
-        
+        Console.WriteLine($"Gästnamn: {Person.Name}");
+        Console.WriteLine($"Email: {Person.Mail}");
+        Console.WriteLine($"Telefonnummer: {Person.PhoneNumber}\n");
+        Console.WriteLine($"Startdatum: {StartDate:d}");
+        Console.WriteLine($"Slutdatum: {EndDate:d}");
+        Console.WriteLine($"Ditt pris blir: {CalculateBookingPrice()}\n");
+
     }
 
     public int CalculateBookingPrice()
@@ -56,5 +58,5 @@ public class HotelBooking
         _length = lengthOfStayInDay;
     }
 
-    
+
 }
